@@ -1,15 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+/// @title Gas Information
 contract GasInfo {
-    // returns the transaction gas price
-    function getGasPrice() public view returns (uint){
+    /// @notice Returns transaction gas price.
+    function getGasPrice() public view returns (uint256) {
         return tx.gasprice;
     }
 
-    // returns the remaining gas amount
-    function getGas() public view returns (uint) {
-        uint gas = gasleft();
-        return gas;
+    /// @notice Returns remaining gas.
+    function getGas() public view returns (uint256) {
+        return gasleft();
     }
 }

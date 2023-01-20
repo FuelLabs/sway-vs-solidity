@@ -1,17 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+/// @title Count Tracker
 contract Counter {
-    // Initilize the counter
-    uint public counter = 0;
+    /// @notice Returns current count.
+    /// @dev Initializes to zero implicitly.
+    uint256 public count;
 
-    // Function to get the current count
-    function count() public view returns (uint) {
-        return counter;
-    }
-
-    // Function to increment count by 1
-    function increment() public {
-        counter = counter + 1;
+    /// @notice Increments the count.
+    function increment() external {
+        count += 1;
     }
 }
