@@ -1,20 +1,28 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
+/// @title Elliptic Curve Ops
 contract ECRecover {
+    /// @notice Recovers a public address, given a message hash and signature.
+    /// @param ethSignedMessageHash Hash of message.
+    /// @param signature EC signature.
     function recoverSigner(
-        bytes32 _ethSignedMessageHash,
-        bytes memory _signature
+        bytes32 ethSignedMessageHash,
+        bytes memory signature
     ) public pure returns (address) {
-        (bytes32 r, bytes32 s, uint8 v) = splitSignature(_signature);
+        (bytes32 r, bytes32 s, uint8 v) = splitSignature(signature);
 
         // A recovered public key
-        return ecrecover(_ethSignedMessageHash, v, r, s);
+        return ecrecover(ethSignedMessageHash, v, r, s);
     }
 
-    function splitSignature(
-        bytes memory sig
-    ) public pure returns (bytes32 r, bytes32 s, uint8 v) {
+    /// @notice Splits an EC signature into its `r`, `s`, and `v` components.
+    /// @param sig Signature to split.
+    function splitSignature(bytes memory sig)
+        public
+        pure
+        returns (bytes32 r, bytes32 s, uint8 v)
+    {
         require(sig.length == 65, "invalid signature length");
         assembly {
             r := mload(add(sig, 32))
