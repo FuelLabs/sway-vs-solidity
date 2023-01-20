@@ -4,8 +4,10 @@ pragma solidity ^0.8.17;
 contract ReEntrancyGuard {
     bool internal locked;
 
+    error NonReentrant();
+
     modifier noReentrant() {
-        require(!locked, "No re-entrancy");
+        if (locked) revert NonReentrant();
         locked = true;
         _;
         locked = false;

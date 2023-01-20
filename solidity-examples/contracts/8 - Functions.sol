@@ -1,18 +1,18 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.17;
 
-function privateFunction(){
+function freeInternalFunction() {
     // this function can only be called internally
 }
 
-function privatePureFunction() pure {
+function freeInternalPureFunction() pure {
     // this function can only be called internally
 }
 
 contract Functions {
     function publicFunction() public {
         // this function can be called internally and externally
-        privateFunction();
+        freeInternalFunction();
     }
 
     function internalFunction() internal {
@@ -26,7 +26,7 @@ contract Functions {
 
     function pureFunction(uint x) public pure returns (uint y) {
         // can only call other pure functions
-        privatePureFunction();
+        freeInternalPureFunction();
         return x;
     }
 }
