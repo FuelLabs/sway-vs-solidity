@@ -73,3 +73,7 @@ This contract shows how to recover a public key from a signed message.
 ## 18 - Re-entrancy Guard
 
 A contract that includes a guard against a re-entrancy attack.
+
+## 19 - Unsigned Integers
+
+This contract shows how unsigned integers are handled beyond the native max of u64
