@@ -2,7 +2,7 @@ library interface;
 
 abi Alice {
     #[storage(read)]
-    fn get_number() -> u64;
+    fn get_favourite_number() -> u64;
 }
 
 /*
@@ -14,7 +14,7 @@ abi Alice {
 
     impl Alice for Contract {
         #[storage(read)]
-        fn get_number() -> u64 {
+        fn get_favourite_number() -> u64 {
             return storage.favourite_number;
         }
     }
