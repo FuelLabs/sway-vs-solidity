@@ -77,3 +77,7 @@ A contract that includes a guard against a re-entrancy attack.
 ## 19 - Unsigned Integers
 
 This contract shows how unsigned integers are handled beyond the native max of u64
+
+## 20 - Contract Calls
+
+This contract shows how a contract can call other contracts through interfaces
