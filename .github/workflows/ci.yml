@@ -1,0 +1,62 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  release:
+    types: [published]
+
+jobs:
+  build-sway-contract-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Fuelup
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://fuellabs.github.io/fuelup/fuelup-init.sh | sh
+      - name: Modify Path
+        run: echo "$HOME/.fuelup/bin:${GITHUB_PATH}" >> $GITHUB_PATH
+      - name: Set Default Beta-3 Toolchain
+        run: fuelup toolchain install beta-3 && fuelup default beta-3
+      - name: Build Hello World Contract 1
+        run: forc build --path ./sway-examples/1-hello-world
+      - name: Build Counter Contract 2
+        run: forc build --path ./sway-examples/2-counter
+      - name: Build Logging Contract 3
+        run: forc build --path ./sway-examples/3-logging
+      - name: Build Storage Contract 4
+        run: forc build --path ./sway-examples/4-storage
+      - name: Build Conditional Contract 5
+        run: forc build --path ./sway-examples/5-conditional
+      - name: Build Structs Contract 6
+        run: forc build --path ./sway-examples/6-structs
+      - name: Build Errors Contract 7
+        run: forc build --path ./sway-examples/7-errors
+      - name: Build Functions Contract 8
+        run: forc build --path ./sway-examples/8-functions
+      - name: Build Functions Contract 9
+        run: forc build --path ./sway-examples/9-amounts
+      - name: Build Functions Contract 10
+        run: forc build --path ./sway-examples/10-message-info
+      - name: Build Functions Contract 11
+        run: forc build --path ./sway-examples/11-gas-info
+      - name: Build Functions Contract 12
+        run: forc build --path ./sway-examples/12-contract-info
+      - name: Build Functions Contract 13
+        run: forc build --path ./sway-examples/13-block-info
+      - name: Build Functions Contract 14
+        run: forc build --path ./sway-examples/14-transfer
+      - name: Build Functions Contract 15
+        run: forc build --path ./sway-examples/15-mint-tokens
+      - name: Build Functions Contract 16
+        run: forc build --path ./sway-examples/16-hashing
+      - name: Build Functions Contract 17
+        run: forc build --path ./sway-examples/17-ec-recover
+      - name: Build Functions Contract 18
+        run: forc build --path ./sway-examples/18-re-entrancy
+      - name: Build Functions Contract 19
+        run: forc build --path ./sway-examples/19-unsigned-ints
+      - name: Build Functions Contract 20
+        run: forc build --path ./sway-examples/20-contract-calls
