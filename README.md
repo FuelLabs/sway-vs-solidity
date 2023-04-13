@@ -6,6 +6,8 @@ This repo contains 1:1 examples showing how to implement example Solidity code i
 
 A basic contract that stores a variable `greeting`, and has a function to return the value of that variable.
 
+[Hello World Twitter Thread](https://twitter.com/schwartzswartz/status/1617902570630156294)
+
 ## 2 - Counter
 
 This contract stores a variable called `counter` in persistent storage, and has two functions: `count` which reads the value of `counter`, and `increment` which adds 1 to the current value of `counter`.
@@ -14,9 +16,13 @@ This contract stores a variable called `counter` in persistent storage, and has 
 
 This contract logs the number `42` and the string `Hello World!` whenever someone calls the `logger` function.
 
+[Logging Twitter Thread](https://twitter.com/SwayLang/status/1620077543322947584)
+
 ## 4 - Storage
 
 This contract stores five types of state variables: a number, a string, a boolean, a map, and an array. It has functions to read and update their values.
+
+[Storage Twitter Thread](https://twitter.com/schwartzswartz/status/1621166627093094400)
 
 ## 5 - Conditional
 
