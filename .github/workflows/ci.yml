@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Install Fuelup
         run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://fuellabs.github.io/fuelup/fuelup-init.sh | sh
+          curl --proto '=https' --tlsv1.2 -sSf https://install.fuel.network/fuelup-init.sh | sh
       - name: Modify Path
         run: echo "$HOME/.fuelup/bin:${GITHUB_PATH}" >> $GITHUB_PATH
       - name: Set Default Beta-3 Toolchain
