@@ -21,23 +21,23 @@ jobs:
       - name: Set Default Beta-3 Toolchain
         run: fuelup toolchain install beta-3 && fuelup default beta-3
       - name: Build Hello World Contract 1
-        run: forc build --path ./sway-examples/1-hello-world
+        run: forc build --path ./sway-examples/01-hello-world
       - name: Build Counter Contract 2
-        run: forc build --path ./sway-examples/2-counter
+        run: forc build --path ./sway-examples/02-counter
       - name: Build Logging Contract 3
-        run: forc build --path ./sway-examples/3-logging
+        run: forc build --path ./sway-examples/03-logging
       - name: Build Storage Contract 4
-        run: forc build --path ./sway-examples/4-storage
+        run: forc build --path ./sway-examples/04-storage
       - name: Build Conditional Contract 5
-        run: forc build --path ./sway-examples/5-conditional
+        run: forc build --path ./sway-examples/05-conditional
       - name: Build Structs Contract 6
-        run: forc build --path ./sway-examples/6-structs
+        run: forc build --path ./sway-examples/06-structs
       - name: Build Errors Contract 7
-        run: forc build --path ./sway-examples/7-errors
+        run: forc build --path ./sway-examples/07-errors
       - name: Build Functions Contract 8
-        run: forc build --path ./sway-examples/8-functions
+        run: forc build --path ./sway-examples/08-functions
       - name: Build Functions Contract 9
-        run: forc build --path ./sway-examples/9-amounts
+        run: forc build --path ./sway-examples/09-amounts
       - name: Build Functions Contract 10
         run: forc build --path ./sway-examples/10-message-info
       - name: Build Functions Contract 11
