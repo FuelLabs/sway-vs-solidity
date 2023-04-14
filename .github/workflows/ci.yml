@@ -60,17 +60,54 @@ jobs:
         run: forc build --path ./sway-examples/19-unsigned-ints
       - name: Build Functions Contract 20
         run: forc build --path ./sway-examples/20-contract-calls
+
   build-solidity-contract-examples:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Install Solidity Compiler
         run: |
           sudo add-apt-repository ppa:ethereum/ethereum
           sudo apt-get update
           sudo apt-get install solc
-
       - name: Build Hello World Contract 1
         run: solc ./solidity-examples/contracts/01-HelloWorld.sol
+      - name: Build Counter Contract 2
+        run: solc ./solidity-examples/contracts/02-Counter.sol
+      - name: Build Logging Contract 3
+        run: solc ./solidity-examples/contracts/03-Event.sol
+      - name: Build Storage Contract 4
+        run: solc ./solidity-examples/contracts/04-Storage.sol
+      - name: Build Conditional Contract 5
+        run: solc ./solidity-examples/contracts/05-Conditional.sol
+      - name: Build Structs Contract 6
+        run: solc ./solidity-examples/contracts/06-Structs.sol
+      - name: Build Errors Contract 7
+        run: solc ./solidity-examples/contracts/07-Errors.sol
+      - name: Build Functions Contract 8
+        run: solc ./solidity-examples/contracts/08-Functions.sol
+      - name: Build Functions Contract 9
+        run: solc ./solidity-examples/contracts/09-Amounts.sol
+      - name: Build Functions Contract 10
+        run: solc ./solidity-examples/contracts/10-Message.sol
+      - name: Build Functions Contract 11
+        run: solc ./solidity-examples/contracts/11-Gas.sol
+      - name: Build Functions Contract 12
+        run: solc ./solidity-examples/contracts/12-Contract.sol
+      - name: Build Functions Contract 13
+        run: solc ./solidity-examples/contracts/13-Block.sol
+      - name: Build Functions Contract 14
+        run: solc ./solidity-examples/contracts/14-Transfer.sol
+      - name: Build Functions Contract 15
+        run: solc ./solidity-examples/contracts/15-MintTokens.sol
+      - name: Build Functions Contract 16
+        run: solc ./solidity-examples/contracts/16-Hashing.sol
+      - name: Build Functions Contract 17
+        run: solc ./solidity-examples/contracts/17-ECRecover.sol
+      - name: Build Functions Contract 18
+        run: solc ./solidity-examples/contracts/18-Re-entrancy.sol
+      - name: Build Functions Contract 19
+        run: solc ./solidity-examples/contracts/19-UnsignedInts.sol
+      - name: Build Functions Contract 20
+        run: solc ./solidity-examples/contracts/20-ContractCalls.sol
