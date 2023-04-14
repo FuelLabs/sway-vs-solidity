@@ -8,7 +8,7 @@ struct Todo {
 }
 
 impl Todo {
-    fn update_text(mut self, text: str[10]) {
+    fn update_text(ref mut self, text: str[10]) {
         self.text = text;
     }
 }
