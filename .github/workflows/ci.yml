@@ -60,3 +60,17 @@ jobs:
         run: forc build --path ./sway-examples/19-unsigned-ints
       - name: Build Functions Contract 20
         run: forc build --path ./sway-examples/20-contract-calls
+  build-solidity-contract-examples:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Solidity Compiler
+        run: |
+          sudo add-apt-repository ppa:ethereum/ethereum
+          sudo apt-get update
+          sudo apt-get install solc
+
+      - name: Build Hello World Contract 1
+        run: solc ./solidity-examples/contracts/01-HelloWorld.sol
