@@ -1,6 +1,6 @@
 contract;
 
-dep interface;
+mod interface;
 use interface::Alice;
 
 abi Bob {

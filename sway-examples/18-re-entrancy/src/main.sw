@@ -1,7 +1,6 @@
 contract;
 
-dep reentrancy;
-
+mod reentrancy;
 use reentrancy::reentrancy_guard;
 
 abi ReEntrancyGuard {

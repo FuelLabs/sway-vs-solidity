@@ -1,4 +1,4 @@
-library interface;
+library;
 
 abi Alice {
     #[storage(read)]
