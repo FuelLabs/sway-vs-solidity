@@ -48,6 +48,8 @@ This contract shows the units used for amounts of ether.
 
 This contract shows how to access the message sender and message amount sent in a transaction.
 
+[Message Info Twitter Thread](https://twitter.com/SwayLang/status/1622991008488206337)
+
 ## 11 - Gas Info
 
 This contract shows how to access information about the gas used in a transaction.
