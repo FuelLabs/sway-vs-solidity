@@ -82,6 +82,8 @@ This contract shows how to recover a public key from a signed message.
 
 A contract that includes a guard against a re-entrancy attack.
 
+[Re-entrancy Guard Twitter Thread](https://twitter.com/SwayLang/status/1621210727275970560)
+
 ## 19 - Unsigned Integers
 
 This contract shows how unsigned integers are handled beyond the native max of u64
