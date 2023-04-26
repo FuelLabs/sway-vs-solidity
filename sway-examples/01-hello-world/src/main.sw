@@ -7,6 +7,7 @@ abi HelloWorld {
 
 storage {
     greeting: str[12] = "Hello World!",
+    blah: u64 = 10,
 }
 
 impl HelloWorld for Contract {
