@@ -1,6 +1,6 @@
 contract;
 
-use std::storage::StorageVec;
+use std::storage::storage_vec::*;
 
 struct Todo {
     text: str[10],
@@ -43,19 +43,19 @@ impl Todos for Contract {
 
     #[storage(read)]
     fn get(index: u64) -> Todo {
-        storage.todos.get(index).unwrap()
+        storage.todos.get(index).unwrap().read()
     }
 
     #[storage(read, write)]
     fn update_text(index: u64, text: str[10]) {
-        let mut todo = storage.todos.get(index).unwrap();
+        let mut todo = storage.todos.get(index).unwrap().read();
         todo.update_text(text);
         storage.todos.set(index, todo);
     }
 
     #[storage(read, write)]
     fn toggle_completed(index: u64) {
-        let mut todo = storage.todos.get(index).unwrap();
+        let mut todo = storage.todos.get(index).unwrap().read();
         todo.completed = !todo.completed;
         storage.todos.set(index, todo);
     }

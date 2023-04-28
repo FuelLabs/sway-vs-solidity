@@ -18,8 +18,8 @@ impl Bob for Contract {
 
         let alice_contract = abi(Alice, alices_address);
         
-        storage.favourite_number = alice_contract.get_favourite_number();
+        storage.favourite_number.write(alice_contract.get_favourite_number());
         
-        return storage.favourite_number;
+        return storage.favourite_number.read();
     }
 }

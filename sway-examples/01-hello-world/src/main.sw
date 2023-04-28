@@ -1,5 +1,7 @@
 contract;
 
+use std::storage::*;
+
 abi HelloWorld {
     #[storage(read)]
     fn get_greeting() -> str[12];
@@ -12,6 +14,6 @@ storage {
 impl HelloWorld for Contract {
     #[storage(read)]
     fn get_greeting() -> str[12] {
-        storage.greeting
+        return storage.greeting.read()
     }
 }

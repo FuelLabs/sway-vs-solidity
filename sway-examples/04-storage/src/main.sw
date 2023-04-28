@@ -1,6 +1,6 @@
 contract;
 
-use std::storage::StorageVec;
+use std::storage::storage_vec::*;
 
 abi Storage {
     #[storage(read)]
@@ -37,9 +37,9 @@ impl Storage for Contract {
 
     #[storage(write)]
     fn update_storage() {
-        storage.number = 8;
-        storage.string = "fuel";
-        storage.boolean = true;
+        storage.number.write(8);
+        storage.string.write("fuel");
+        storage.boolean.write(true);
 
         let addr1 = Address::from(0x0101010101010101010101010101010101010101010101010101010101010101);
         storage.map.insert(1, addr1);
@@ -50,12 +50,13 @@ impl Storage for Contract {
 
     #[storage(read, write)]
     fn read_and_update_storage() {
-        storage.number = storage.number + 1;
-        storage.string = "labs";
-        storage.boolean = !storage.boolean;
+        let incremented = storage.number.read() + 1;
+        storage.number.write(incremented);
+        storage.string.write("labs");
+        storage.boolean.write(!storage.boolean.read());
 
         // copy a storage map value to a new key
-        let map_item = storage.map.get(1).unwrap();
+        let map_item = storage.map.get(1).read();
         storage.map.insert(2, map_item);
 
         // add 5 to the end of the storageVec vector
