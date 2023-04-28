@@ -1,0 +1,102 @@
+{
+  "types": [
+    {
+      "typeId": 0,
+      "type": "b256",
+      "components": null,
+      "typeParameters": null
+    },
+    {
+      "typeId": 1,
+      "type": "enum Identity",
+      "components": [
+        {
+          "name": "Address",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "ContractId",
+          "type": 3,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 2,
+      "type": "struct Address",
+      "components": [
+        {
+          "name": "value",
+          "type": 0,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 3,
+      "type": "struct ContractId",
+      "components": [
+        {
+          "name": "value",
+          "type": 0,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 4,
+      "type": "u64",
+      "components": null,
+      "typeParameters": null
+    }
+  ],
+  "functions": [
+    {
+      "inputs": [],
+      "name": "get_amount",
+      "output": {
+        "name": "",
+        "type": 4,
+        "typeArguments": null
+      },
+      "attributes": [
+        {
+          "name": "payable",
+          "arguments": []
+        }
+      ]
+    },
+    {
+      "inputs": [],
+      "name": "get_asset_id",
+      "output": {
+        "name": "",
+        "type": 3,
+        "typeArguments": null
+      },
+      "attributes": [
+        {
+          "name": "payable",
+          "arguments": []
+        }
+      ]
+    },
+    {
+      "inputs": [],
+      "name": "get_sender",
+      "output": {
+        "name": "",
+        "type": 1,
+        "typeArguments": null
+      },
+      "attributes": null
+    }
+  ],
+  "loggedTypes": [],
+  "messagesTypes": [],
+  "configurables": []
+}

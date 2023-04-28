@@ -1,0 +1,66 @@
+{
+  "types": [
+    {
+      "typeId": 0,
+      "type": "()",
+      "components": [],
+      "typeParameters": null
+    },
+    {
+      "typeId": 1,
+      "type": "[_; 2]",
+      "components": [
+        {
+          "name": "__array_element",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 2,
+      "type": "b256",
+      "components": null,
+      "typeParameters": null
+    },
+    {
+      "typeId": 3,
+      "type": "struct B512",
+      "components": [
+        {
+          "name": "bytes",
+          "type": 1,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    }
+  ],
+  "functions": [
+    {
+      "inputs": [
+        {
+          "name": "signature",
+          "type": 3,
+          "typeArguments": null
+        },
+        {
+          "name": "msg_hash",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
+      "name": "use_ec_recover",
+      "output": {
+        "name": "",
+        "type": 0,
+        "typeArguments": null
+      },
+      "attributes": null
+    }
+  ],
+  "loggedTypes": [],
+  "messagesTypes": [],
+  "configurables": []
+}

@@ -1,0 +1,46 @@
+{
+  "types": [
+    {
+      "typeId": 0,
+      "type": "()",
+      "components": [],
+      "typeParameters": null
+    },
+    {
+      "typeId": 1,
+      "type": "enum ReentrancyError",
+      "components": [
+        {
+          "name": "NonReentrant",
+          "type": 0,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    }
+  ],
+  "functions": [
+    {
+      "inputs": [],
+      "name": "safe_function",
+      "output": {
+        "name": "",
+        "type": 0,
+        "typeArguments": null
+      },
+      "attributes": null
+    }
+  ],
+  "loggedTypes": [
+    {
+      "logId": 0,
+      "loggedType": {
+        "name": "",
+        "type": 1,
+        "typeArguments": []
+      }
+    }
+  ],
+  "messagesTypes": [],
+  "configurables": []
+}

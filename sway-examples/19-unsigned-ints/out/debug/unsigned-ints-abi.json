@@ -1,0 +1,122 @@
+{
+  "types": [
+    {
+      "typeId": 0,
+      "type": "struct U128",
+      "components": [
+        {
+          "name": "upper",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "lower",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 1,
+      "type": "struct U256",
+      "components": [
+        {
+          "name": "a",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "b",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "c",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "d",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 2,
+      "type": "u64",
+      "components": null,
+      "typeParameters": null
+    }
+  ],
+  "functions": [
+    {
+      "inputs": [
+        {
+          "name": "x",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "y",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
+      "name": "u128_operation",
+      "output": {
+        "name": "",
+        "type": 0,
+        "typeArguments": null
+      },
+      "attributes": null
+    },
+    {
+      "inputs": [
+        {
+          "name": "x",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "y",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
+      "name": "u256_operation",
+      "output": {
+        "name": "",
+        "type": 1,
+        "typeArguments": null
+      },
+      "attributes": null
+    },
+    {
+      "inputs": [
+        {
+          "name": "x",
+          "type": 2,
+          "typeArguments": null
+        },
+        {
+          "name": "y",
+          "type": 2,
+          "typeArguments": null
+        }
+      ],
+      "name": "u64_operation",
+      "output": {
+        "name": "",
+        "type": 2,
+        "typeArguments": null
+      },
+      "attributes": null
+    }
+  ],
+  "loggedTypes": [],
+  "messagesTypes": [],
+  "configurables": []
+}
