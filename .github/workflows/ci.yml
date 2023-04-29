@@ -18,8 +18,6 @@ jobs:
           curl --proto '=https' --tlsv1.2 -sSf https://install.fuel.network/fuelup-init.sh | sh
       - name: Modify Path
         run: echo "$HOME/.fuelup/bin:${GITHUB_PATH}" >> $GITHUB_PATH
-      - name: Set Default Beta-3 Toolchain
-        run: fuelup toolchain install beta-3 && fuelup default beta-3
       - name: Build Hello World Contract 1
         run: forc build --path ./sway-examples/01-hello-world
       - name: Build Counter Contract 2
