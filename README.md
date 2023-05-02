@@ -1,6 +1,29 @@
 # Sway vs Solidity Examples
-
 This repo contains 1:1 examples showing how to implement example Solidity code in Sway.
+
+<p align="center">
+    <a href="https://github.com/FuelLabs//sway-vs-solidity/actions/workflows/ci.yml" alt="CI">
+        <img src="https://github.com/FuelLabs/sway-vs-solidity/actions/workflows/ci.yml/badge.svg" />
+    </a>
+    <a href="./LICENSE" alt="forc">
+        <img src="https://img.shields.io/github/license/FuelLabs/sway-vs-solidity" />
+    </a>
+    <a href="https://discord.gg/xfpK4Pe">
+        <img src="https://img.shields.io/discord/732892373507375164?color=6A7EC2&logo=discord&logoColor=ffffff&labelColor=6A7EC2&label=Discord" />
+    </a>
+</p>
+
+## Repository Structure
+```
+├── sway-vs-solidity   
+│   └── 01-hello-world
+│       ├── solidity
+│       └── sway
+│   ...
+│
+├── LICENSE
+└── README.md
+```
 
 ## 1 - Hello World
 
