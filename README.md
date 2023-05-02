@@ -14,6 +14,13 @@ This repo contains 1:1 examples showing how to implement example Solidity code i
 </p>
 
 ## Repository Structure
+
+Each project in this repository is self-contained and operates independently of the others. This means that means for every `Sway` project example there is a subsequent `Solidity` example. 
+
+However, it's important to keep in mind that all the projects are integrated within the same CI system. Therefore, any updates or modifications to one project must guarantee that the other projects still function correctly.
+
+To illustrate the structure of the repository, below is a visual representation.
+
 ```
 ├── sway-vs-solidity   
 │   └── 01-hello-world
@@ -25,92 +32,59 @@ This repo contains 1:1 examples showing how to implement example Solidity code i
 └── README.md
 ```
 
-## 1 - Hello World
+## Examples
+1. Hello World: A basic contract that stores a variable `greeting`, and has a function to return the value of that variable. 
 
-A basic contract that stores a variable `greeting`, and has a function to return the value of that variable.
+    [Hello World Twitter Thread](https://twitter.com/schwartzswartz/status/1617902570630156294)
 
-[Hello World Twitter Thread](https://twitter.com/schwartzswartz/status/1617902570630156294)
+2. Counter: This contract stores a variable called `counter` in persistent storage, and has two functions: `count` which reads the value of `counter`, and `increment` which adds 1 to the current value of `counter`.
 
-## 2 - Counter
+3. Logging: This contract logs the number `42` and the string `Hello World!` whenever someone calls the `logger` function.
 
-This contract stores a variable called `counter` in persistent storage, and has two functions: `count` which reads the value of `counter`, and `increment` which adds 1 to the current value of `counter`.
+    [Logging Twitter Thread](https://twitter.com/SwayLang/status/1620077543322947584)
 
-## 3 - Logging
+4. Storage: This contract stores five types of state variables: a number, a string, a boolean, a map, and an array. It has functions to read and update their values.
 
-This contract logs the number `42` and the string `Hello World!` whenever someone calls the `logger` function.
+    [Storage Twitter Thread](https://twitter.com/schwartzswartz/status/1621166627093094400)
 
-[Logging Twitter Thread](https://twitter.com/SwayLang/status/1620077543322947584)
+5. Conditional: This contract just includes some simple conditional logic to demonstrate the syntax.
 
-## 4 - Storage
+6. Structs: A `Todo` contract that stores a persistent array of `Todo` structs, and has functions to create a new `Todo`, get the value of one, and update an existing one.
 
-This contract stores five types of state variables: a number, a string, a boolean, a map, and an array. It has functions to read and update their values.
+7. Errors: This contract demonstrates a few ways to throw errors.
 
-[Storage Twitter Thread](https://twitter.com/schwartzswartz/status/1621166627093094400)
+8. Functions: A contract with internal and external functions.
 
-## 5 - Conditional
+9. Amounts: This contract shows the units used for amounts of ether.
 
-This contract just includes some simple conditional logic to demonstrate the syntax.
+10. Message Info: This contract shows how to access the message sender and message amount sent in a transaction.
 
-## 6 - Structs (ToDo contract)
+    [Message Info Twitter Thread](https://twitter.com/SwayLang/status/1622991008488206337)
 
-A `Todo` contract that stores a persistent array of `Todo` structs, and has functions to create a new `Todo`, get the value of one, and update an existing one.
+11. Gas Info: This contract shows how to access information about the gas used in a transaction.
 
-## 7 - Errors
+12. Contract Info: This contract shows how to access the contract's balance and id.
 
-This contract demonstrates a few ways to throw errors.
+13. Block Info: This contract shows how to access information about the current block.
 
-## 8 - Functions
+14. Transfer: This contract shows the methods available to transfer assets.
 
-A contract with internal and external functions.
+15. Mint Tokens: A contract that mint tokens.
 
-## 9 - Amounts
+16. Hashing: A contract that uses sha256 and keccack256 hashing.
 
-This contract shows the units used for amounts of ether.
+17. EC Recover: This contract shows how to recover a public key from a signed message.
 
-## 10 - Message Info
+18. Re-entrancy Guard: A contract that includes a guard against a re-entrancy attack.
 
-This contract shows how to access the message sender and message amount sent in a transaction.
+    [Re-entrancy Guard Twitter Thread](https://twitter.com/SwayLang/status/1621210727275970560)
 
-[Message Info Twitter Thread](https://twitter.com/SwayLang/status/1622991008488206337)
+19.  Unsigned Integers: This contract shows how unsigned integers are handled beyond the native max of u64
 
-## 11 - Gas Info
+20.  Contract Calls: This contract shows how a contract can call other contracts through interfaces
 
-This contract shows how to access information about the gas used in a transaction.
+## Running a project
+In order to utilize our tools and run any of the projects, it is necessary for you to clone this repository and follow the [installation steps](https://fuellabs.github.io/sway/v0.38.0/book/introduction/installation.html) for the Fuel tool suite.
 
-## 12 - Contract Info
-
-This contract shows how to access the contract's balance and id.
-
-## 13 - Block Info
-
-This contract shows how to access information about the current block.
-
-## 14 - Transfer
-
-This contract shows the methods available to transfer assets.
-
-## 15 - Mint Tokens
-
-A contract that mint tokens.
-
-## 16 - Hashing
-
-A contract that uses sha256 and keccack256 hashing.
-
-## 17 - EC Recover
-
-This contract shows how to recover a public key from a signed message.
-
-## 18 - Re-entrancy Guard
-
-A contract that includes a guard against a re-entrancy attack.
-
-[Re-entrancy Guard Twitter Thread](https://twitter.com/SwayLang/status/1621210727275970560)
-
-## 19 - Unsigned Integers
-
-This contract shows how unsigned integers are handled beyond the native max of u64
-
-## 20 - Contract Calls
-
-This contract shows how a contract can call other contracts through interfaces
+## Contributing 
+Feel free to open up an issue 
