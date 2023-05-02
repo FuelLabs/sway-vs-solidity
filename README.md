@@ -1,5 +1,9 @@
 # Sway vs Solidity Examples
-This repo contains 1:1 examples showing how to implement example Solidity code in Sway.
+
+### This repo contains 1:1 examples showing how to implement example Solidity code in Sway.
+
+> **Note**
+> [Sway](https://github.com/FuelLabs/sway) is a language under heavy development therefore the applications may not be the most ergonomic. Over time they should receive updates / improvements in order to demonstrate how Sway can be used in real use cases.
 
 <p align="center">
     <a href="https://github.com/FuelLabs//sway-vs-solidity/actions/workflows/ci.yml" alt="CI">
