@@ -8,104 +8,40 @@ on:
   release:
     types: [published]
 
-jobs:
-  build-sway-contract-examples:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Install Fuelup
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://install.fuel.network/fuelup-init.sh | sh
-      - name: Modify Path
-        run: echo "$HOME/.fuelup/bin:${GITHUB_PATH}" >> $GITHUB_PATH
-      - name: Build Hello World Contract 1
-        run: forc build --path ./sway-examples/01-hello-world
-      - name: Build Counter Contract 2
-        run: forc build --path ./sway-examples/02-counter
-      - name: Build Logging Contract 3
-        run: forc build --path ./sway-examples/03-logging
-      - name: Build Storage Contract 4
-        run: forc build --path ./sway-examples/04-storage
-      - name: Build Conditional Contract 5
-        run: forc build --path ./sway-examples/05-conditional
-      - name: Build Structs Contract 6
-        run: forc build --path ./sway-examples/06-structs
-      - name: Build Errors Contract 7
-        run: forc build --path ./sway-examples/07-errors
-      - name: Build Functions Contract 8
-        run: forc build --path ./sway-examples/08-functions
-      - name: Build Functions Contract 9
-        run: forc build --path ./sway-examples/09-amounts
-      - name: Build Functions Contract 10
-        run: forc build --path ./sway-examples/10-message-info
-      - name: Build Functions Contract 11
-        run: forc build --path ./sway-examples/11-gas-info
-      - name: Build Functions Contract 12
-        run: forc build --path ./sway-examples/12-contract-info
-      - name: Build Functions Contract 13
-        run: forc build --path ./sway-examples/13-block-info
-      - name: Build Functions Contract 14
-        run: forc build --path ./sway-examples/14-transfer
-      - name: Build Functions Contract 15
-        run: forc build --path ./sway-examples/15-mint-tokens
-      - name: Build Functions Contract 16
-        run: forc build --path ./sway-examples/16-hashing
-      - name: Build Functions Contract 17
-        run: forc build --path ./sway-examples/17-ec-recover
-      - name: Build Functions Contract 18
-        run: forc build --path ./sway-examples/18-re-entrancy
-      - name: Build Functions Contract 19
-        run: forc build --path ./sway-examples/19-unsigned-ints
-      - name: Build Functions Contract 20
-        run: forc build --path ./sway-examples/20-contract-calls
+env:
+  RUST_VERSION: 1.68.2
 
-  build-solidity-contract-examples:
+jobs:
+  build-contracts:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        project:
+          [
+            "01-hello-world",
+          ]
+    
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Install Solidity Compiler
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+          components: clippy, rustfmt
+
+      - name: Init cache
+        uses: Swatinem/rust-cache@v2
+
+      - name: Install Fuel toolchain
+        uses: FuelLabs/action-fuel-toolchain@v0.6.0
+        with:
+          toolchain: latest
+          date: 2023-04-12
+      
+      - name: Build Sway
         run: |
-          sudo add-apt-repository ppa:ethereum/ethereum
-          sudo apt-get update
-          sudo apt-get install solc
-      - name: Build Hello World Contract 1
-        run: solc ./solidity-examples/contracts/01-HelloWorld.sol
-      - name: Build Counter Contract 2
-        run: solc ./solidity-examples/contracts/02-Counter.sol
-      - name: Build Logging Contract 3
-        run: solc ./solidity-examples/contracts/03-Event.sol
-      - name: Build Storage Contract 4
-        run: solc ./solidity-examples/contracts/04-Storage.sol
-      - name: Build Conditional Contract 5
-        run: solc ./solidity-examples/contracts/05-Conditional.sol
-      - name: Build Structs Contract 6
-        run: solc ./solidity-examples/contracts/06-Structs.sol
-      - name: Build Errors Contract 7
-        run: solc ./solidity-examples/contracts/07-Errors.sol
-      - name: Build Functions Contract 8
-        run: solc ./solidity-examples/contracts/08-Functions.sol
-      - name: Build Functions Contract 9
-        run: solc ./solidity-examples/contracts/09-Amounts.sol
-      - name: Build Functions Contract 10
-        run: solc ./solidity-examples/contracts/10-Message.sol
-      - name: Build Functions Contract 11
-        run: solc ./solidity-examples/contracts/11-Gas.sol
-      - name: Build Functions Contract 12
-        run: solc ./solidity-examples/contracts/12-Contract.sol
-      - name: Build Functions Contract 13
-        run: solc ./solidity-examples/contracts/13-Block.sol
-      - name: Build Functions Contract 14
-        run: solc ./solidity-examples/contracts/14-Transfer.sol
-      - name: Build Functions Contract 15
-        run: solc ./solidity-examples/contracts/15-MintTokens.sol
-      - name: Build Functions Contract 16
-        run: solc ./solidity-examples/contracts/16-Hashing.sol
-      - name: Build Functions Contract 17
-        run: solc ./solidity-examples/contracts/17-ECRecover.sol
-      - name: Build Functions Contract 18
-        run: solc ./solidity-examples/contracts/18-Re-entrancy.sol
-      - name: Build Functions Contract 19
-        run: solc ./solidity-examples/contracts/19-UnsignedInts.sol
-      - name: Build Functions Contract 20
-        run: solc ./solidity-examples/contracts/20-ContractCalls.sol
+          cd ${{ matrix.project }}/sway
+          forc build --locked
