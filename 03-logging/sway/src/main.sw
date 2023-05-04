@@ -7,7 +7,7 @@ abi Event {
 }
 
 impl Event for Contract {
-    fn logger(){
+    fn logger() {
         log(42);
         log("Hello World!");
     }

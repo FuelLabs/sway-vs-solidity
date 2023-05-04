@@ -8,7 +8,7 @@ abi ReEntrancyGuard {
 }
 
 impl ReEntrancyGuard for Contract {
-    fn safe_function(){
+    fn safe_function() {
         reentrancy_guard();
         // do something
     }

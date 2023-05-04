@@ -15,11 +15,10 @@ storage {
 impl Bob for Contract {
     #[storage(write, read)]
     fn copy_alices_number(alices_address: b256) -> u64 {
-
         let alice_contract = abi(Alice, alices_address);
-        
+
         storage.favourite_number.write(alice_contract.get_favourite_number());
-        
+
         return storage.favourite_number.read();
     }
 }

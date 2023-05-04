@@ -63,13 +63,13 @@ jobs:
       
       - name: Install Solidity Compiler
         run: |
-          sudo add-apt-repository ppa:ethereum/ethereum
+          sudo add-apt-repository -y ppa:ethereum/ethereum
           sudo apt-get update
-          sudo apt-get install solc
+          sudo apt-get install -y solc
 
       - name: Check Sway formatting
         run: |
-          forc fmt --check ./${{ matrix.project }}/sway
+          forc fmt --check ./${{ matrix.project }}/sway/src/*.sw
 
       - name: Build Sway
         run: |

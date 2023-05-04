@@ -2,7 +2,7 @@ contract;
 
 abi Errors {
     fn test_require(i: u64);
-    
+
     fn test_custom_require(i: u64);
 
     fn test_revert(i: u64);
@@ -11,24 +11,18 @@ abi Errors {
 }
 
 enum InvalidError {
-    InputIsLessThanTen: u64
+    InputIsLessThanTen: u64,
 }
 
-impl Errors for Contract {    
+impl Errors for Contract {
     // Recommended custom, dev-defined require error for gas savings
     fn test_custom_require(i: u64) {
-        require(
-            i < 10, 
-            InvalidError::InputIsLessThanTen(i)
-        );
+        require(i < 10, InvalidError::InputIsLessThanTen(i));
     }
 
     // Not recommended for require
     fn test_require(i: u64) {
-        require(
-            i < 10, 
-            "Input must be greater than ten"
-        );
+        require(i < 10, "Input must be greater than ten");
     }
 
     fn test_revert(i: u64) {

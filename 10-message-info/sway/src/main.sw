@@ -1,10 +1,6 @@
 contract;
 
-use std::{
-    auth::{AuthError, msg_sender},
-    call_frames::msg_asset_id, 
-    context::msg_amount
-};
+use std::{auth::{AuthError, msg_sender}, call_frames::msg_asset_id, context::msg_amount};
 
 abi MessageInfo {
     fn get_sender() -> Identity;

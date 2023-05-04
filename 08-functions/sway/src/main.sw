@@ -15,7 +15,7 @@ fn private_function(a: u64, b: u64) -> u64 {
 impl Functions for Contract {
     fn public_function() {
         // do something
-    }
+}
 
     fn use_private_function(a: u64, b: u64) -> u64 {
         private_function(a, b)
