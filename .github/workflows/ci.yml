@@ -100,4 +100,4 @@ jobs:
 
       - name: Build Solidity
         run: |
-          solc ./${{ matrix.project }}/solid
+          solc ./${{ matrix.project }}/solidity/*.sol
