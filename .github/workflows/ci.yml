@@ -45,16 +45,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # - name: Install Rust toolchain
-      #   uses: dtolnay/rust-toolchain@master
-      #   with:
-      #     toolchain: ${{ env.RUST_VERSION }}
-      #     components: clippy, rustfmt
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@master
+        with:
+          toolchain: ${{ env.RUST_VERSION }}
+          components: clippy, rustfmt
 
-      # - name: Init cache
-      #   uses: Swatinem/rust-cache@v2
-
-
+      - name: Init cache
+        uses: Swatinem/rust-cache@v2
 
       - name: Modify Path
         run: echo "$HOME/.fuelup/bin:${GITHUB_PATH}" >> $GITHUB_PATH
@@ -62,7 +60,24 @@ jobs:
       - name: Install Fuel toolchain
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://install.fuel.network/fuelup-init.sh | sh
+      
+      - name: Install Solidity Compiler
+        run: |
+          sudo add-apt-repository ppa:ethereum/ethereum
+          sudo apt-get update
+          sudo apt-get install solc
+
+      - name: Check Sway formatting
+        run: |
+          forc fmt --check ./${{ matrix.project }}/sway
 
       - name: Build Sway
         run: |
           forc build --path ./${{ matrix.project }}/sway
+
+      - name: Build Solidity
+        run: |
+          solc ./${{ matrix.project }}/solidity/*.sol
+
+
+
