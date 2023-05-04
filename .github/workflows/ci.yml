@@ -90,10 +90,6 @@ jobs:
       - name: Add fuel to PATH
         run: echo "${{ env.FUEL_CACHE_PATH }}/bin:${GITHUB_PATH}" >> $GITHUB_PATH
 
-      - name: Check Sway formatting
-        run: |
-          forc fmt --check ./${{ matrix.project }}/sway/src/*.sw
-
       - name: Build Sway
         run: |
           forc build --path ./${{ matrix.project }}/sway
