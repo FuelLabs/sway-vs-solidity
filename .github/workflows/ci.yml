@@ -11,6 +11,7 @@ on:
 env:
   RUST_VERSION: 1.68.2
   SOLC_CACHE_PATH: ${{ github.workspace }}/.solc_cache
+  FUEL_CACHE_PATH: ${{ github.workspace }}/.fuel_cache
 
 jobs:
   build-contracts:
@@ -73,12 +74,21 @@ jobs:
       - name: Init cache
         uses: Swatinem/rust-cache@v2
 
-      - name: Modify Path
-        run: echo "$HOME/.fuelup/bin:${GITHUB_PATH}" >> $GITHUB_PATH
+      - name: Setup fuel cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.FUEL_CACHE_PATH }}
+          key: fuel-cache
 
       - name: Install Fuel toolchain
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           curl --proto '=https' --tlsv1.2 -sSf https://install.fuel.network/fuelup-init.sh | sh
+          mkdir -p ${{ env.FUEL_CACHE_PATH }}
+          cp -r $HOME/.fuelup/bin ${{ env.FUEL_CACHE_PATH }}/bin
+
+      - name: Add fuel to PATH
+        run: echo "${{ env.FUEL_CACHE_PATH }}/bin:${GITHUB_PATH}" >> $GITHUB_PATH
 
       - name: Check Sway formatting
         run: |
@@ -90,4 +100,4 @@ jobs:
 
       - name: Build Solidity
         run: |
-          solc ./${{ matrix.project }}/solidity/*.sol
+          solc ./${{ matrix.project }}/solid
