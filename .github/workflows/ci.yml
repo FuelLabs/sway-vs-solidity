@@ -20,28 +20,49 @@ jobs:
         project:
           [
             "01-hello-world",
+            "02-counter",
+            "03-logging",
+            "04-storage",
+            "05-conditional",
+            "06-structs",
+            "07-errors",
+            "08-functions",
+            "09-amounts",
+            "10-message-info",
+            "11-gas-info",
+            "12-contract-info",
+            "13-block-info",
+            "14-transfer",
+            "15-mint-tokens",
+            "16-hashing",
+            "17-ec-recover",
+            "18-reentrancy-guard",
+            "19-unsigned-integers",
+            "20-contract-calls",
           ]
     
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install Rust toolchain
-        uses: dtolnay/rust-toolchain@master
-        with:
-          toolchain: ${{ env.RUST_VERSION }}
-          components: clippy, rustfmt
+      # - name: Install Rust toolchain
+      #   uses: dtolnay/rust-toolchain@master
+      #   with:
+      #     toolchain: ${{ env.RUST_VERSION }}
+      #     components: clippy, rustfmt
 
-      - name: Init cache
-        uses: Swatinem/rust-cache@v2
+      # - name: Init cache
+      #   uses: Swatinem/rust-cache@v2
+
+
+
+      - name: Modify Path
+        run: echo "$HOME/.fuelup/bin:${GITHUB_PATH}" >> $GITHUB_PATH
 
       - name: Install Fuel toolchain
-        uses: FuelLabs/action-fuel-toolchain@v0.6.0
-        with:
-          toolchain: latest
-          date: 2023-04-12
-      
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://install.fuel.network/fuelup-init.sh | sh
+
       - name: Build Sway
         run: |
-          cd ${{ matrix.project }}/sway
-          forc build --locked
+          forc build --path ./${{ matrix.project }}/sway
