@@ -1,6 +1,9 @@
 contract;
 
-use std::storage::storage_vec::*;
+use std::{
+    storage::storage_vec::*,
+    hash::Hash,
+};
 
 abi Storage {
     #[storage(read)]
@@ -17,7 +20,6 @@ abi Storage {
 
 storage {
     number: u64 = 0,
-    string: str[4] = "sway",
     boolean: bool = false,
     map: StorageMap<u64, Address> = StorageMap {},
     vector: StorageVec<u64> = StorageVec {},
@@ -27,7 +29,6 @@ impl Storage for Contract {
     #[storage(read)]
     fn read_storage() {
         let number = storage.number;
-        let string = storage.string;
         let boolean = storage.boolean;
         // will return an Option with either Some(value) or None
         let map_item = storage.map.get(1);
@@ -38,7 +39,6 @@ impl Storage for Contract {
     #[storage(write)]
     fn update_storage() {
         storage.number.write(8);
-        storage.string.write("fuel");
         storage.boolean.write(true);
 
         let addr1 = Address::from(0x0101010101010101010101010101010101010101010101010101010101010101);
@@ -52,7 +52,6 @@ impl Storage for Contract {
     fn read_and_update_storage() {
         let incremented = storage.number.read() + 1;
         storage.number.write(incremented);
-        storage.string.write("labs");
         storage.boolean.write(!storage.boolean.read());
 
         // copy a storage map value to a new key

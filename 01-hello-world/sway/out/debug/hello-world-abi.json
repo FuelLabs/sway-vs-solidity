@@ -2,7 +2,7 @@
   "types": [
     {
       "typeId": 0,
-      "type": "str[12]",
+      "type": "u64",
       "components": null,
       "typeParameters": null
     }
@@ -10,7 +10,7 @@
   "functions": [
     {
       "inputs": [],
-      "name": "get_greeting",
+      "name": "get_lucky_number",
       "output": {
         "name": "",
         "type": 0,
