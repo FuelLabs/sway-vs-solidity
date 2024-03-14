@@ -9,7 +9,7 @@ abi MessageInfo {
     fn get_amount() -> u64;
 
     #[payable]
-    fn get_asset_id() -> ContractId;
+    fn get_asset_id() -> AssetId;
 }
 
 impl MessageInfo for Contract {
@@ -26,7 +26,7 @@ impl MessageInfo for Contract {
 
     // returns the asset id of the asset sent
     #[payable]
-    fn get_asset_id() -> ContractId {
+    fn get_asset_id() -> AssetId {
         msg_asset_id()
     }
 }

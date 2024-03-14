@@ -20,7 +20,7 @@
     },
     {
       "typeId": 2,
-      "type": "str[30]",
+      "type": "str",
       "components": null,
       "typeParameters": null
     },

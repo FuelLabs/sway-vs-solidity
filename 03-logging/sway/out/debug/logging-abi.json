@@ -8,7 +8,7 @@
     },
     {
       "typeId": 1,
-      "type": "str[12]",
+      "type": "str",
       "components": null,
       "typeParameters": null
     },

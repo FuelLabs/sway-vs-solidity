@@ -2,8 +2,8 @@ contract;
 
 use std::{
     constants::BASE_ASSET_ID,
-    token::transfer,
-    token::{
+    asset::{
+        transfer,
         force_transfer_to_contract,
         transfer_to_address,
     },
@@ -19,14 +19,14 @@ abi Transfer {
 
 impl Transfer for Contract {
     fn transfer_to_address_or_contract(receiver: Identity) {
-        transfer(1, BASE_ASSET_ID, receiver);
+        transfer(receiver, BASE_ASSET_ID, 1);
     }
 
     fn transfer_to_address(receiver: Address) {
-        transfer_to_address(1, BASE_ASSET_ID, receiver);
+        transfer_to_address(receiver, BASE_ASSET_ID, 1);
     }
 
     fn transfer_to_contract(receiver: ContractId) {
-        force_transfer_to_contract(1, BASE_ASSET_ID, receiver);
+        force_transfer_to_contract(receiver, BASE_ASSET_ID, 1);
     }
 }

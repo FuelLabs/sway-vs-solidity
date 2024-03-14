@@ -17,7 +17,7 @@
         },
         {
           "name": "ContractId",
-          "type": 3,
+          "type": 4,
           "typeArguments": null
         }
       ],
@@ -37,7 +37,7 @@
     },
     {
       "typeId": 3,
-      "type": "struct ContractId",
+      "type": "struct AssetId",
       "components": [
         {
           "name": "value",
@@ -49,6 +49,18 @@
     },
     {
       "typeId": 4,
+      "type": "struct ContractId",
+      "components": [
+        {
+          "name": "value",
+          "type": 0,
+          "typeArguments": null
+        }
+      ],
+      "typeParameters": null
+    },
+    {
+      "typeId": 5,
       "type": "u64",
       "components": null,
       "typeParameters": null
@@ -60,7 +72,7 @@
       "name": "get_amount",
       "output": {
         "name": "",
-        "type": 4,
+        "type": 5,
         "typeArguments": null
       },
       "attributes": [

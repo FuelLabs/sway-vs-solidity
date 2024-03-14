@@ -1,6 +1,6 @@
 contract;
 
-use std::hash::{keccak256, sha256};
+use std::hash::{Hash, keccak256, sha256};
 
 abi Hashes {
     fn hash_keccack() -> b256;

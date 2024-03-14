@@ -3,7 +3,7 @@ contract;
 use std::{block::{height, timestamp, timestamp_of_block}};
 
 abi BlockInfo {
-    fn get_block_height() -> u64;
+    fn get_block_height() -> u32;
 
     fn get_timestamp() -> u64;
 
@@ -11,7 +11,7 @@ abi BlockInfo {
 }
 
 impl BlockInfo for Contract {
-    fn get_block_height() -> u64 {
+    fn get_block_height() -> u32 {
         height()
     }
 

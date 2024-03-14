@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.17;
+pragma solidity ^0.8.24;
 
 contract UintOperations {
     function u64Operation(uint64 x, uint64 y) public pure returns (uint64){
